@@ -18,6 +18,20 @@ dataframe<-data.frame(diamonds)
 dataframe<-data.frame(mtcars)
 
 explore<-function(dataframe,switch,threshold,vector){
+## This function called explore that accepts the dataframe,
+## a plot switch that can accept three values: off, on or grid
+## a threshold cut-off value between 0 and 1
+## a optional vector 
+## Parameter: 
+##           dataframe, switch, threshold value, vector c
+## Return: 
+##        a frequency table for every factor variables:
+##        a summary statistics table for each numerical variables;
+##        a dataframe with associated two column datas r-square
+##        a dataframe with associated two column datas correlation coefficient which absolute value < threshold
+##        a histogram(if switch on or grid)
+##        a bar plot(if switch on or grid)
+
   dataframe1=dataframe[sapply(dataframe,is.factor)]
   dataframe2=dataframe[sapply(dataframe,is.numeric)]
   checkswitch<-list("on","off","grid")
@@ -70,32 +84,33 @@ explore<-function(dataframe,switch,threshold,vector){
   if(switch[1]==checkswitch[[1]] || switch[1]==checkswitch[[3]]){
     par(mfrow=c(3,3))
     for(i in 1:length(a)){
-      pdf(paste(colnames(dataframe2[,i]),"_Htg.pdf")) ## save as pdf file. 
+      #pdf(paste(colnames(dataframe2[,i]),"_Htg.pdf")) ## save as pdf file. 
       mk=mean(dataframe2[,i])
       mx=max(dataframe2[,i])
       mi=min(dataframe2[,i])
       h=hist(dataframe2[,i], xlab="Density", xlim=c(mi-0.5, mx+0.5), ylab="Count", col="lightblue", main=paste(colnames(dataframe2[i]),"Histogram"))
       abline(v=mk,col="red",lwd=2)
-      dev.off()
+      #dev.off()
     }
     par(mfrow=c(2,2))
     for(j in 1:length(b)){
-      pdf(paste(colnames(dataframe1[,j]),"_Bar.pdf"))
+      #pdf(paste(colnames(dataframe1[,j]),"_Bar.pdf"))
       bar=barplot(table(dataframe1[,j]), ylab="Counts", col="gray", main=paste(colnames(dataframe1[j]),"Gray Bar Plot"))
-      dev.off()
+      #dev.off()
     }
   }
   else if(switch[1]==checkswitch[[3]]){
     par(mfrow=c(3,3))
+    vector=c(0,1,2)
     for(i in 1:length(a)){
-      pdf(paste(colnames(dataframe2[,i]),"_Htg.pdf"))
+      #pdf(paste(colnames(dataframe2[,i]),"_Htg.pdf"))
       mk=mean(dataframe2[,i])
       mx=max(dataframe2[,i])
       mi=min(dataframe2[,i])
-      h=hist(dataframe2[,i], xlab="Density", xlim=c(mi-0.5, mx+0.5), ylab="Count", col="lightblue", main=paste(colnames(dataframe2[i]),"Histogram"))
+      h=hist(dataframe2[,i], breaks=vector, xlab="Density", xlim=c(mi-0.5, mx+0.5), ylab="Count", col="lightblue", main=paste(colnames(dataframe2[i]),"Histogram"))
       abline(v=mk,col="red",lwd=2)
       grid(NULL, NULL, lwd = 2, lty="dotted", col="red")
-      dev.off()
+      #dev.off()
     }
   }
   else{
