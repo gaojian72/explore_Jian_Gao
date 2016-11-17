@@ -1,11 +1,13 @@
----
-title: "Assigenment 7"
-output: html_document
----
+##Prof G - ---
+##Prof G - title: "Assigenment 7"
+##Prof G - output: html_document
+##Prof G - ---
 
 # Jian Gao
 # Group C
 
+##Prof G - Something is missing in this file. 
+##Prof G - dataexpl function does not exist.
 
 ## My idea for this question is that first of all clarify whether the variable 
 ## of the dataframe is factor variables,
@@ -36,7 +38,9 @@ checkswitch<-list("on","off","grid")
 ## with rest part of the projct!!!
 
 
-
+##Prof G - try naming your functions better to give
+##Prof G - a hint about what they do. subfunction1 is 
+##Prof G - not very descriptive.
 ## subfunction1
 subfunction1<-function(dataframe){ 
  # This function is a frequency table for every categorical and logical variable.
@@ -66,7 +70,7 @@ subfunction2(diamonds)
 subfunction3<-function(dataframe){
   # this function can accept any dataframe as a parameter and returns a dataframe 
   # that contains each pair of column names in the first column in a single string
-  # separated by a -, e.g. for the variables x and y, the string is “x-y”.
+  # separated by a -, e.g. for the variables x and y, the string is ?x-y?.
   # and calculate their corresponding r-square in the second column.
   # parameter: data_frame
   # type: any data frame
@@ -93,7 +97,7 @@ subfunction3(diamonds)
 subfunction4<-function(dataframe,threshold){
   # this function can accept any dataframe as a parameter and returns a dataframe 
   # that contains each pair of column names in the first column in a single string
-  # separated by a -, e.g. for the variables x and y, the string is “x-y”.
+  # separated by a -, e.g. for the variables x and y, the string is ?x-y?.
   # and calculate their corresponding Pearson correlation coefficient in the second column.
   # And choose correlation coefficient (Pearson) for all coefficients whose absolute value 
   # is greater than the correlation threshold
@@ -124,11 +128,11 @@ subfunction4(diamonds,0.7)
 
 ##plot histogram and bar 
 plot_count<-function(dataframe,switch,vector){
-  # This function works like this: If the plot switch parameter is “on” or “grid”,
+  # This function works like this: If the plot switch parameter is ?on? or ?grid?,
   # then plot a pair of blue histograms with a vertical red line at the mean (one 
   # using counts and the other density) for every numerical variable at each number 
   # of bins integer specified in the bin vector parameter. If the plot switch is set 
-  # to “grid”, there should be a grid for each count-bin combination and a separate 
+  # to ?grid?, there should be a grid for each count-bin combination and a separate 
   # grid for each density-bin size combination. For example, given 5 numeric variables 
   # and a vector of three bin number integers, the function should generate 30 individual 
   # plots or a total of 6 grid plots (with each grid plot containing 5 subplots).  
@@ -197,6 +201,7 @@ explore<-function(dataframe,switch,threshold,vector){
 ## This function called explore that accepts the dataframe,
 ## a plot switch that can accept three values: off, on or grid
 ## a threshold cut-off value between 0 and 1
+  ##Prof G - What does the vector do?
 ## a optional vector 
 ## Parameter:dataframe, switch, threshold value, vector c
 ## Return:a frequency table for every factor variables:
