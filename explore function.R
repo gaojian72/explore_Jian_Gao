@@ -1,4 +1,4 @@
-library('ggplot2')
+﻿library('ggplot2')
 library('plyr')
 library('grid')
 library(reshape2)
@@ -13,12 +13,13 @@ is.binary <- function(v) {
   #check to see if x only contains 2 distinct values
 }
 
+dataframe=diamonds
+## Suppose that the test dataframe is diamonds
 checkswitch<-list("on","off","grid")
 # This is a check switch for make sure wheter the switch is on off or grid.
 dataframe4=dataframe[sapply(dataframe,is.binary)]
 ## Set dataframe4 as the dataframe concerns the binary elements 
-dataframe=diamonds
-## Suppose that the test dataframe is diamonds
+
 
 ## subfunction1
 subfunction1<-function(dataframe){ 
